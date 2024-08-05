@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "글목록",
     "section": "",
-    "text": "HW3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhw5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "HW3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhw5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhw6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/hw4/hw4.html",
@@ -89,5 +89,12 @@
     "title": "Homework2",
     "section": "",
     "text": "p144\n\nimport pandas as pd\nimport matplotlib.pyplot as plt \nimport seaborn\nimport numpy as np    \n\nmpg_raw = pd.read_csv(\"mpg.csv\")\nmpg = mpg_raw.copy()\n\n\na4 = sum(mpg.query('displ &lt;= 4')[\"hwy\"])/len(mpg.query('displ &lt;= 4')[\"hwy\"])\na4 = mpg.query('displ &lt;= 4')[\"hwy\"].mean()\nb5 = sum(mpg.query('displ &gt;= 5')[\"hwy\"])/len(mpg.query('displ &gt;= 5')[\"hwy\"])\nif a4 &gt; b5 :\n    print(\"배기량 4 이하 자동차가 고속도로 연비 평균이 높습니다.\")\nelse :\n    print(\"배기량 5 이상 자동차가 고속도로 연비 평균이 높습니다.\")\n\nmpg.info\naudi_cty_mean = mpg.query('manufacturer == \"audi\"')[\"cty\"].mean()\ntoyota_cty_mean = mpg.query('manufacturer == \"toyota\"')[\"cty\"].mean()\nif audi_cty_mean &gt; toyota_cty_mean :\n    print(\"audi의 도시 연비 평균이 높습니다.\")\nelse :\n    print(\"toyota의 도시 연비 평균이 높습니다.\")\n\nprint(mpg.query('manufacturer in [\"chevorlet\",\"ford\",\"honda\"]')['hwy'].mean())\n\n배기량 4 이하 자동차가 고속도로 연비 평균이 높습니다.\ntoyota의 도시 연비 평균이 높습니다.\n22.852941176470587\n\n\n\n\np153\n\nimport pandas as pd\nimport numpy as np    \n\nmpg_raw = pd.read_csv(\"mpg.csv\")\nmpg = mpg_raw.copy()\nmpg[[\"category\",\"cty\"]]\nsuv_cty_mean = mpg.query(\"category == 'suv'\")['cty'].mean()\ncom_cty_mean = mpg.query(\"category == 'compact'\")['cty'].mean()\n\nif suv_cty_mean &gt; com_cty_mean :\n    print(\"suv의 도시 연비 평균이 높습니다.\")\nelse :\n    print(\"compact의 도시 연비 평균이 높습니다.\")\n\ncompact의 도시 연비 평균이 높습니다.\n\n\n\n\np158\n\nmpg_raw = pd.read_csv(\"mpg.csv\")\nmpg = mpg_raw.copy()\nmpg.assign(sum_ty = lambda x : x['cty'] + x[\"hwy\"],\nave_ty = lambda x : x['sum_ty']/2).sort_values(\"ave_ty\",ascending=False).head(3)\nmpg = mpg.assign(sum_ty = lambda x : x['cty'] + x[\"hwy\"],\nave_ty = lambda x : x['sum_ty']/2)\n\nmpg.sort_values(\"ave_ty\").head(3)\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\ncategory\nsum_ty\nave_ty\n\n\n\n\n54\ndodge\ndakota pickup 4wd\n4.7\n2008\n8\nauto(l5)\n4\n9\n12\ne\npickup\n21\n10.5\n\n\n59\ndodge\ndurango 4wd\n4.7\n2008\n8\nauto(l5)\n4\n9\n12\ne\nsuv\n21\n10.5\n\n\n69\ndodge\nram 1500 pickup 4wd\n4.7\n2008\n8\nmanual(m6)\n4\n9\n12\ne\npickup\n21\n10.5"
+  },
+  {
+    "objectID": "posts/hw6/hw6.html",
+    "href": "posts/hw6/hw6.html",
+    "title": "hw6",
+    "section": "",
+    "text": "신형 자동차의 에너지 소비효율 등급\n슬통 자동자는 매해 출시되는 신형 자동차의 에너지 소비효율 등급을 1등급으로 유지하고 있다. 22 년 개발된 신형 모델이 한국 자동차 평가원에서 설정한 에너지 소비 효율등급 1등급을 받을 수 있을지 검정하려한다. 평가원에 따르면 1등급의 기준은 평균 복합 에너지 소비효율이 16.0 이상인 경우 부여 한다고 한다. 다음은 신형 자동차 15대의 복합 에너지소비효율 측정한 결과이다.\n15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927, 15.382, 16.709, 16.804\n표본에 의하여 판단해볼때, 현대자동차의 신형 모델은 에너지 효율 1등급으로 판단할 수 있을지 판단해보시오. (유의수준 1%로 설정)\n\n1. 검정을 위한 가설을 명확하게 서술하시오.\n\nimport numpy as np\nimport matplotlib.pyplot as plt    \nfrom scipy.stats import t\nfrom scipy.stats import norm\n\n#1. H0 : mu &gt;= 16 , Ha: mu1 &lt; 16\n\n\n\n2. 검정통계량 계산하시오.\n\na = np.array([15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927,\n15.382, 16.709, 16.804])\na_mean = a.mean()\na_std = np.std(a,ddof=1)\nn = len(a)\na_sn = np.std(a, ddof=1) / np.sqrt(n)\n#2. \nt_value = (a_mean - 16)/a_sn\n\n\n\n3. p‑value을 구하세요.\n\n#p_value\np_value = t.cdf(a_mean, df=n-1)\n\n\n\n4. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.\n\nci = t.interval(0.95, loc=a_mean, scale=a_sn, df=n-1)\nci\nround(a_mean - t.ppf(0.975, n-1) * a_sn, 3); round(a_mean + t.ppf(0.975, n-1) * a_sn, 3)\n\nnp.float64(16.075)"
   }
 ]
