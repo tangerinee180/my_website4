@@ -54,5 +54,5 @@ ci
 ```
 
 ```{python}
-round(a_mean - t.ppf(0.975, n-1) * a_sn, 3); round(a_mean + t.ppf(0.975, n-1) * a_sn, 3)
+print(round(a_mean - t.ppf(0.975, n-1) * a_sn, 3),round(a_mean + t.ppf(0.975, n-1) * a_sn, 3))
 ```
