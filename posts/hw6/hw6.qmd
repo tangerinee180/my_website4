@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import t
 from scipy.stats import norm
 
-#1. H0 : mu >= 16 , Ha: mu1 < 16
+print("H0 : mu >= 16 , Ha: mu1 < 16")
 ```
 
 ### 2. 검정통계량 계산하시오.
@@ -34,6 +34,7 @@ n = len(a)
 a_sn = np.std(a, ddof=1) / np.sqrt(n)
 #2. 
 t_value = (a_mean - 16)/a_sn
+t_value
 ```
 
 ### 3. p‑value을 구하세요.
@@ -42,6 +43,7 @@ t_value = (a_mean - 16)/a_sn
 
 #p_value
 p_value = t.cdf(a_mean, df=n-1)
+p_value
 ```
 
 ### 4. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.
