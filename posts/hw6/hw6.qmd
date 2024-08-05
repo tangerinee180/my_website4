@@ -19,7 +19,7 @@ import numpy as np
 import matplotlib.pyplot as plt    
 from scipy.stats import t
 from scipy.stats import norm
-
+#1.
 print("H0 : mu >= 16 , Ha: mu1 < 16")
 ```
 
@@ -42,7 +42,7 @@ t_value
 ```{python}
 
 #p_value
-p_value = t.cdf(a_mean, df=n-1)
+p_value = t.cdf(t_value, df=n-1)
 p_value
 ```
 
