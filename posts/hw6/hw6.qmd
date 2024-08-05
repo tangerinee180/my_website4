@@ -51,5 +51,9 @@ p_value
 
 ci = t.interval(0.95, loc=a_mean, scale=a_sn, df=n-1)
 ci
+
+```
+
+```{python}
 round(a_mean - t.ppf(0.975, n-1) * a_sn, 3); round(a_mean + t.ppf(0.975, n-1) * a_sn, 3)
 ```
