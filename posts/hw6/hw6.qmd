@@ -51,7 +51,6 @@ p_value
 
 ci = t.interval(0.95, loc=a_mean, scale=a_sn, df=n-1)
 ci
-
 ```
 
 ```{python}
