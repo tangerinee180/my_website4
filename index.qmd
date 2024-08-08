@@ -1,6 +1,7 @@
 ---
 title: "MyWebSite4"
 jupyter: python3
+toc: false
 ---
 진짜 이번에도 터지면 진짜 퇴소함                                
 

@@ -1,0 +1,12 @@
+{
+  "hash": "404c7e9987b496e03779df48efc7cba6",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"hw6\"\neditor: visual\njupyter: python3\n---\n\n\n# 신형 자동차의 에너지 소비효율 등급\n\n슬통 자동자는 매해 출시되는 신형 자동차의 에너지 소비효율 등급을 1등급으로 유지하고 있다. 22 년 개발된 신형 모델이 한국 자동차 평가원에서 설정한 에너지 소비 효율등급 1등급을 받을 수 있을지 검정하려한다. 평가원에 따르면 1등급의 기준은 평균 복합 에너지 소비효율이 16.0 이상인 경우 부여 한다고 한다. 다음은 신형 자동차 15대의 복합 에너지소비효율 측정한 결과이다.\n\n15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927, 15.382, 16.709, 16.804\n\n표본에 의하여 판단해볼때, 현대자동차의 신형 모델은 에너지 효율 1등급으로 판단할 수 있을지 판단해보시오. (유의수준 1%로 설정)\n\n### 1. 검정을 위한 가설을 명확하게 서술하시오.\n\n::: {#88d68b2b .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport matplotlib.pyplot as plt    \nfrom scipy.stats import t\nfrom scipy.stats import norm\n#1.\nprint(\"H0 : mu >= 16 , Ha: mu1 < 16\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nH0 : mu >= 16 , Ha: mu1 < 16\n```\n:::\n:::\n\n\n### 2. 검정통계량 계산하시오.(t-value)\n\n::: {#5d64668e .cell execution_count=2}\n``` {.python .cell-code}\na = np.array([15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927, 15.382, 16.709, 16.804])\na_mean = a.mean()\na_std = np.std(a,ddof=1)\nn = len(a)\na_sn = np.std(a, ddof=1) / np.sqrt(n)\n#2. \nt_value = (a_mean - 16)/a_sn\nt_value\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\nnp.float64(-1.8500447456376756)\n```\n:::\n:::\n\n\n### 3. p‑value을 구하세요.(유의 수준인 1%보다 작으면 기각)\n\n::: {#e68c1e94 .cell execution_count=3}\n``` {.python .cell-code}\n#p_value\np_value = t.cdf(t_value, df=n-1)\np_value\n```\n\n::: {.cell-output .cell-output-display execution_count=3}\n```\nnp.float64(0.042762417664207845)\n```\n:::\n:::\n\n\n### 4. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.\n\n::: {#6746d357 .cell execution_count=4}\n``` {.python .cell-code}\nci = t.interval(0.95, loc=a_mean, scale=a_sn, df=n-1)\nci\n```\n\n::: {.cell-output .cell-output-display execution_count=4}\n```\n(np.float64(14.988864240339733), np.float64(16.074602426326933))\n```\n:::\n:::\n\n\n::: {#704f2f44 .cell execution_count=5}\n``` {.python .cell-code}\nprint(round(a_mean - t.ppf(0.975, n-1) * a_sn, 3),round(a_mean + t.ppf(0.975, n-1) * a_sn, 3))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n14.989 16.075\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "hw6_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
