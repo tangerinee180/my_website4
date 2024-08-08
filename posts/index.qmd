@@ -2,8 +2,8 @@
 title: "Recent posts"
 listing:
     contents: 
-    - "**/*/**.qmd"
-    - "**/*/**.ipynb"
+    - "posts/**.qmd"
+    - "posts/**.ipynb"
     type: grid
     fields: [image, date, title, subtitle]
     sort: "date desc"
