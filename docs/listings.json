@@ -5,6 +5,16 @@
       "/posts/hw3/hw3.html",
       "/posts/hw4/hw4.html",
       "/posts/hw5/hw5.html",
+      "/posts/hw6/hw6.html",
+      "/posts/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/hw3/hw3.html",
+      "/posts/hw4/hw4.html",
+      "/posts/hw5/hw5.html",
       "/posts/hw6/hw6.html"
     ]
   }

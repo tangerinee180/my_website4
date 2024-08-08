@@ -3,17 +3,16 @@ project:
   output-dir: docs
   
 website:
+
   title: "Page No.4"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
-      - href: blog.qmd
-        text: Blog
+      - href: posts/index.qmd
+        text: homework
+
 format:
   html:
     theme: cosmo
-    css: styles.css
     toc: true
